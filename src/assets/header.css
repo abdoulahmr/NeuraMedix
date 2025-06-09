@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.p-menubar {
+  border-radius: 0;
+}
+
+.custom-menubar .p-menubar-root-list {
+  margin-left: auto;
+}
+
+.custom-menubar .p-menubar-start {
+  padding-right: 1rem;
+}
+
+.p-menubar .p-menuitem-link {
+    padding: 0.75rem 1.25rem;
+}
+
+@media (max-width: 960px) { 
+  .custom-menubar .p-menubar-root-list {
+    margin-left: 0;
+  }
+}
