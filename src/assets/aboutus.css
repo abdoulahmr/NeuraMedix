@@ -1,0 +1,402 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+    box-sizing: border-box;
+}
+
+.about-us-wrapper {
+    display: flex;
+    max-width: 1200px;
+    margin: 40px auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    min-height: 70vh;
+    overflow: hidden;
+}
+
+.about-us-sidebar {
+    flex: 0 0 280px;
+    background-color: #f5f7fa;
+    padding: 30px 0;
+    border-right: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-heading {
+    font-size: 1.6em;
+    color: #2c3e50;
+    padding: 0 30px 20px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+.nav-item {
+    padding: 15px 30px;
+    font-size: 1.1em;
+    color: #555;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-left: 5px solid transparent;
+    font-weight: 500;
+}
+
+.nav-item:hover {
+    background-color: #e9eff5;
+    color: #3498db;
+}
+
+.nav-item.active {
+    background-color: #e1e9f0;
+    color: #3498db;
+    border-left-color: #3498db;
+    font-weight: 600;
+}
+
+.about-us-content {
+    flex: 1;
+    padding: 30px 40px;
+}
+
+.about-us-content h1 {
+    font-size: 2.5em;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-weight: 700;
+    text-align: left;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 15px;
+}
+
+/* This h2 style is for general section headings within the content, if you use them */
+.about-us-content h2 {
+    font-size: 2.2em;
+    color: #34495e;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+    text-align: left;
+}
+
+.about-us-content h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 3px;
+    background-color: #3498db;
+    border-radius: 2px;
+}
+
+/* This h3 style is specifically for the "Meet Our Team" heading */
+.about-us-content h3 {
+    font-size: 1.8em;
+    color: #34495e;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.about-us-content h3::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 80px;
+    height: 3px;
+    background-color: #3498db;
+    border-radius: 2px;
+}
+
+.about-us-content p {
+    font-size: 1.05em;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.intro-paragraph {
+    font-size: 1.25em;
+    text-align: left;
+    margin-bottom: 40px;
+    font-weight: 500;
+    color: #555;
+}
+
+/* Team Grid */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+/* Features Grid */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+/* --- REMOVED: .feature-item styles as they are now handled by MUI Card's sx prop --- */
+/*
+.feature-item {
+    background-color: #fefefe;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 4px solid #3498db;
+}
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+.feature-item h3 {
+    font-size: 1.6em;
+    color: #2980b9;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: 600;
+}
+.feature-item p {
+    font-size: 0.95em;
+    text-align: center;
+    color: #666;
+}
+*/
+
+.values-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.values-list li {
+    background-color: #f0f4f7;
+    padding: 18px 25px;
+    border-left: 5px solid #2980b9;
+    border-radius: 8px;
+    font-size: 1.05em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease-in-out;
+}
+
+.values-list li:hover {
+    transform: translateY(-3px);
+}
+
+.values-list li span {
+    font-weight: 600;
+    color: #2c3e50;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.1em;
+}
+
+/* Testimonials Grid */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+/* --- REMOVED: .testimonial-item styles as they are now handled by MUI Card's sx prop --- */
+/*
+.testimonial-item {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-style: italic;
+    position: relative;
+    border-left: 5px solid #3498db;
+}
+.testimonial-item::before {
+    content: '“';
+    font-size: 4em;
+    color: #c0d9ed;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    line-height: 1;
+    z-index: 0;
+}
+.testimonial-item p {
+    font-size: 1.05em;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
+}
+.testimonial-author {
+    font-style: normal;
+    font-weight: bold;
+    color: #2c3e50;
+    text-align: right;
+    margin-top: 15px;
+    font-size: 0.95em;
+}
+*/
+
+.contact-details {
+    text-align: left;
+    margin-top: 30px;
+    font-size: 1.1em;
+}
+
+.contact-details p {
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.contact-details a {
+    color: #2980b9;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.contact-details a:hover {
+    color: #3498db;
+    text-decoration: underline;
+}
+
+.contact-link-button {
+    display: inline-block;
+    background-color: #3498db;
+    color: white !important;
+    padding: 12px 25px;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-weight: 600;
+    text-decoration: none !important;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.contact-link-button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .about-us-wrapper {
+        flex-direction: column;
+        margin: 20px auto;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    .about-us-sidebar {
+        flex: none;
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
+        padding: 20px 0;
+    }
+    .sidebar-heading {
+        text-align: center;
+        padding: 0 20px 15px;
+        border-bottom: none;
+    }
+    .sidebar-nav {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 0 20px;
+    }
+    .nav-item {
+        padding: 10px 15px;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+        text-align: center;
+        flex-shrink: 0;
+    }
+    .nav-item.active {
+        border-bottom-color: #3498db;
+        background-color: #e1e9f0;
+        border-left-color: transparent;
+    }
+    .about-us-content {
+        padding: 20px;
+    }
+    .about-us-content h1 {
+        font-size: 2em;
+        text-align: center;
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+    .about-us-content h2 {
+        font-size: 1.8em;
+        text-align: left;
+    }
+    .about-us-content h2::after {
+        left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .features-grid,
+    .values-list,
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+    /* FIX: Added dot before team-grid */
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    .about-us-content p {
+        text-align: left;
+    }
+    .intro-paragraph {
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-us-content {
+        padding: 15px;
+    }
+    .about-us-content h1 {
+        font-size: 1.8em;
+    }
+    .about-us-content h2 {
+        font-size: 1.6em;
+    }
+    .sidebar-nav {
+      gap: 5px;
+    }
+    .nav-item {
+      font-size: 0.9em;
+      padding: 8px 12px;
+    }
+    /* FIX: Added dot before team-grid */
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+}

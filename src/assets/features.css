@@ -48,6 +48,12 @@
   color: #cbd5e1; /* light gray */
 }
 
+.feature-icon img.icon-img {
+  width: 4rem;
+  height: 4rem;
+  object-fit: contain;
+}
+
 /* Responsive tweaks */
 @media (max-width: 600px) {
   .section-title {

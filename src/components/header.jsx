@@ -1,6 +1,6 @@
 import React from "react";
 import { Menubar } from "primereact/menubar";
-import "./assets/header.css";
+import "./../assets/header.css";
 
 function Header() {
   const items = [
@@ -9,7 +9,7 @@ function Header() {
       label: "Products",
       icon: "pi pi-fw pi-file",
       items: [
-        { label: "ProteinMarker Counter" },
+        { label: "Protein Marker Counter" },
         { label: "Molecule Binding Predictor"},
         { separator: true },
         { label: "Lung Tumor Detection", icon: "pi pi-fw pi-microchip-ai"},
