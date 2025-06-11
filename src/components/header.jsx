@@ -16,6 +16,8 @@ function Header() {
         { label: "Lung Disease Prediction", icon: "pi pi-fw pi-microchip-ai" },
         { label: "Heart Disease Detection", icon: "pi pi-fw pi-microchip-ai" },
         { label: "Cell Detection and Counting", icon: "pi pi-fw pi-microchip-ai" },
+        { separator: true },
+        { label: "See More", icon: "pi pi-fw pi-plus" ,command: () => { window.location.href = "/product"; }},
       ],
     },
     { label: "Contact", icon: "pi pi-fw pi-phone", command: () => { window.location.href = "/contact"; } },

@@ -8,6 +8,7 @@ import ContactUsPage from './pages/contact-us.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
 import Header from './components/header.jsx';
 import Footer from './components/footer.jsx';
+import Product from './pages/product.jsx';
 
 function App() {
   useEffect(() => {
@@ -28,6 +29,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutUsPage />} />
           <Route path="/contact" element={<ContactUsPage />} />
+          <Route path="/product" element={<Product />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>

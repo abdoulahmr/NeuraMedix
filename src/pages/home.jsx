@@ -7,6 +7,7 @@ import FeaturesSection from "./../components/features.jsx";
 import BenefitsSection from "./../components/benefits.jsx";
 import TestimonialsSection from "./../components/testimonial.jsx";
 import CTASection from "./../components/cta.jsx";
+import AboutSection from "../components/about.jsx";
 
 function Home() {
   return (
@@ -25,6 +26,7 @@ function Home() {
         <link rel="icon" href="/img/4.png" />
       </head>
       <HeroSection />
+      <AboutSection />
       <FeaturesSection />
       <BenefitsSection />
       <TestimonialsSection />
