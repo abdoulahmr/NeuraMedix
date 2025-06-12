@@ -8,6 +8,7 @@ import BenefitsSection from "./../components/benefits.jsx";
 import TestimonialsSection from "./../components/testimonial.jsx";
 import CTASection from "./../components/cta.jsx";
 import AboutSection from "../components/about.jsx";
+import PricingSection from "../components/pricing.jsx";
 
 function Home() {
   return (
@@ -28,6 +29,7 @@ function Home() {
       <HeroSection />
       <AboutSection />
       <FeaturesSection />
+      <PricingSection />
       <BenefitsSection />
       <TestimonialsSection />
       <CTASection />
