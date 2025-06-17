@@ -68,20 +68,6 @@ const pricingTiers = [
     buttonColor: 'primary',
     icon: DiamondIcon,
   },
-  {
-    id: 'enterprise',
-    title: 'Enterprise',
-    price: 'Custom Quote',
-    features: [
-      { text: 'On-prem deployment', included: true },
-      { text: 'Dedicated support', included: true },
-      { text: 'API access + security SLAs', included: true },
-    ],
-    buttonText: 'Request a Quote',
-    buttonVariant: 'outlined',
-    buttonColor: 'secondary', // A different color for custom quote
-    icon: BusinessIcon,
-  },
 ];
 
 export default function PricingSection() {

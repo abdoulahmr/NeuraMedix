@@ -19,6 +19,39 @@ body {
     padding: 0.75rem 1.25rem;
 }
 
+.menubar-login-item .p-menuitem-link {
+    border: 1px solid #3498db !important;
+    border-radius: 5px !important;
+    background-color: transparent !important;
+    color: #3498db !important;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.menubar-login-item .p-menuitem-link:hover {
+    background-color: #217dbb !important;
+    color: white !important;
+    border-color: #217dbb !important;
+}
+
+.menubar-register-item .p-menuitem-link {
+    background-color: #3498db !important;
+    color: white !important;
+    border-radius: 5px !important;
+    margin-left: 10px !important;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none !important;
+}
+
+.menubar-register-item .p-menuitem-link:hover {
+    background-color: #217dbb !important;
+    transform: translateY(-1px);
+}
+
+.menubar-login-item .p-menuitem-icon,
+.menubar-register-item .p-menuitem-icon {
+    color: inherit !important;
+}
+
 @media (max-width: 960px) { 
   .custom-menubar .p-menubar-root-list {
     margin-left: 0;

@@ -1,0 +1,192 @@
+.dashboard-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    min-height: calc(100vh - 60px); /* Adjust based on header/footer height */
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-header {
+    text-align: center;
+    margin-bottom: 40px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: relative; /* For logout button positioning */
+}
+
+.dashboard-header h1 {
+    color: #2c3e50;
+    font-size: 2.8em;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.dashboard-intro {
+    color: #666;
+    font-size: 1.1em;
+    margin-top: 5px;
+}
+
+.logout-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #e74c3c; /* Red for logout */
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.logout-button:hover {
+    background-color: #c0392b;
+    transform: translateY(-1px);
+}
+
+.dashboard-content h2 {
+    color: #34495e;
+    font-size: 2em;
+    margin-bottom: 25px;
+    text-align: center;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 15px;
+}
+
+.service-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.service-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* For icon positioning */
+}
+
+.service-card:hover:not(.disabled) {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.service-card h3 {
+    color: #3498db;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.service-card p {
+    color: #777;
+    font-size: 0.95em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    flex-grow: 1; /* Allows paragraph to take available space */
+}
+
+.card-icon {
+    font-size: 2.5em;
+    color: #95a5a6; /* Default icon color */
+    margin-top: 10px;
+}
+
+/* Specific icon colors if desired */
+.service-card:nth-child(1) .card-icon { color: #3498db; } /* Protein Marker */
+.service-card:nth-child(2) .card-icon { color: #e67e22; } /* Molecule Binding */
+.service-card:nth-child(3) .card-icon { color: #1abc9c; } /* Lung Tumor */
+.service-card:nth-child(4) .card-icon { color: #e74c3c; } /* Heart Disease */
+.service-card:nth-child(5) .card-icon { color: #9b59b6; } /* Cell Detection */
+.service-card.all-services-card .card-icon { color: #34495e; } /* All services */
+
+
+/* Disabled card styling */
+.service-card.disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    background-color: #f1f1f1;
+    box-shadow: none;
+    border: 1px dashed #cccccc;
+}
+
+.service-card.disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.service-card.disabled h3 {
+    color: #999;
+}
+
+.service-card.disabled p {
+    color: #aaa;
+}
+
+.dashboard-footer {
+    text-align: center;
+    margin-top: auto; /* Push to the bottom */
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    color: #888;
+    font-size: 0.9em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .dashboard-container {
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    .dashboard-header {
+        padding: 20px;
+    }
+
+    .dashboard-header h1 {
+        font-size: 2.2em;
+    }
+
+    .logout-button {
+        position: static; /* Stack button below header on smaller screens */
+        margin-top: 15px;
+        width: 100%;
+    }
+
+    .service-cards-grid {
+        grid-template-columns: 1fr; /* Single column on small screens */
+    }
+
+    .dashboard-content h2 {
+        font-size: 1.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-header h1 {
+        font-size: 1.8em;
+    }
+    .dashboard-intro {
+        font-size: 1em;
+    }
+}

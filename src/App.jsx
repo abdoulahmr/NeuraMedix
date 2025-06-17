@@ -8,7 +8,12 @@ import ContactUsPage from './pages/contact-us.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
 import Header from './components/header.jsx';
 import Footer from './components/footer.jsx';
-import Product from './pages/product.jsx';
+import MolecularBinding from "./pages/molicule-binding.jsx";
+import Services from "./pages/services.jsx";
+import IHCInsight from "./pages/ihc-insight.jsx";
+import Register from "./pages/register.jsx";
+import Login from "./pages/login.jsx";
+import UserDashboard from "./pages/account/user-dashboard.jsx";
 
 function App() {
   useEffect(() => {
@@ -29,7 +34,12 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutUsPage />} />
           <Route path="/contact" element={<ContactUsPage />} />
-          <Route path="/product" element={<Product />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/user-dashboard" element={<UserDashboard />} />
+          <Route path="/molicule-binding" element={<MolecularBinding />} />
+          <Route path="/ihc-insight" element={<IHCInsight />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>

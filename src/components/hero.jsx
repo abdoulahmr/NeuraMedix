@@ -18,7 +18,7 @@ function HeroSection() {
                 <p className="hero-subtitle">
                     All-in-one AI platform for detection, analysis, and prediction in biomedical research.
                 </p>
-                <button className="hero-cta">Get Started</button>
+                <button className="hero-cta" >Get Started</button>
             </div>
         </div>
     </section>
