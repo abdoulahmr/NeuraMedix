@@ -1,3 +1,33 @@
+.register-back-button {
+  margin: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.back-button {
+  background-color: transparent;
+  border: 2px solid #3498db;
+  color: #3498db;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.back-button:hover {
+  background-color: #3498db;
+  color: white;
+}
+
+.back-arrow {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
 .register-container {
     max-width: 450px;
     margin: 50px auto;
@@ -122,6 +152,39 @@ h2 {
 .login-link:hover {
     color: #217dbb;
     text-decoration: underline;
+}
+
+.terms-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: -8px;
+    margin-bottom: 8px;
+    font-size: 0.97em;
+}
+
+.terms-group input[type="checkbox"] {
+    margin-top: 3px;
+    accent-color: #3498db;
+    width: 18px;
+    height: 18px;
+}
+
+.terms-label {
+    color: #555;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.terms-label a {
+    color: #3498db;
+    text-decoration: underline;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.terms-label a:hover {
+    color: #217dbb;
 }
 
 /* Responsive adjustments */

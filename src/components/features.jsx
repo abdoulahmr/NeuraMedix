@@ -1,11 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Box,
-  Grid,
   Typography,
-  Paper,
   Button,
+  Paper,
 } from '@mui/material';
+import {
+  Timeline,
+  TimelineItem,
+  TimelineSeparator,
+  TimelineConnector,
+  TimelineContent,
+  TimelineDot,
+  TimelineOppositeContent,
+} from '@mui/lab';
 import {
   MonitorHeart as MonitorHeartIcon,
   Favorite as FavoriteIcon,
@@ -17,140 +25,105 @@ import {
   Hub as HubIcon,
 } from '@mui/icons-material';
 
+// Map pi icons to MUI icons for visual consistency
+const iconMap = {
+  'pi-microchip': <HubIcon sx={{ fontSize: 28, color: '#3f51b5' }} />,
+  'pi-cog': <ScienceIcon sx={{ fontSize: 28, color: '#9c27b0' }} />,
+  'pi-box': <CellTowerIcon sx={{ fontSize: 28, color: '#4caf50' }} />,
+  'pi-file-pdf': <FindInPageIcon sx={{ fontSize: 28, color: '#ff9800' }} />,
+  'pi-heart-fill': <FavoriteIcon sx={{ fontSize: 28, color: '#e91e63' }} />,
+  'pi-microchip-ai': <MonitorHeartIcon sx={{ fontSize: 28, color: '#3f51b5' }} />,
+  'pi-chart-line': <HealthAndSafetyIcon sx={{ fontSize: 28, color: '#03a9f4' }} />,
+  'pi-map-marker': <HubIcon sx={{ fontSize: 28, color: '#607d8b' }} />,
+  'pi-compass': <ScienceIcon sx={{ fontSize: 28, color: '#9c27b0' }} />,
+  'pi-image': <CoronavirusIcon sx={{ fontSize: 28, color: '#f44336' }} />,
+  'pi-chart-bar': <HubIcon sx={{ fontSize: 28, color: '#607d8b' }} />,
+  'pi-sliders-h': <HubIcon sx={{ fontSize: 28, color: '#607d8b' }} />,
+  'pi-send': <HubIcon sx={{ fontSize: 28, color: '#607d8b' }} />,
+};
+
 const features = [
-  {
-    icon: <MonitorHeartIcon sx={{ fontSize: 36, color: '#3f51b5' }} />,
-    title: 'Lung Tumor Detection',
-    description: 'Automatically detect tumor locations on CT scans using advanced AI.',
-    link: '/product#lung-tumor-detection',
-  },
-  {
-    icon: <FavoriteIcon sx={{ fontSize: 36, color: '#e91e63' }} />,
-    title: 'Heart Disease Prediction',
-    description: 'Predict heart disease risk based on patient data using ML models.',
-    link: '/product#heart-disease-prediction',
-  },
-  {
-    icon: <CellTowerIcon sx={{ fontSize: 36, color: '#4caf50' }} />,
-    title: 'Cell Detection and Counting',
-    description: 'Detect and count cells in microscopy images accurately.',
-    link: '/product#cell-detection',
-  },
-  {
-    icon: <FindInPageIcon sx={{ fontSize: 36, color: '#ff9800' }} />,
-    title: 'Histology Brown Pixel Counter',
-    description: 'Measure stained brown pixels in histology images for analysis.',
-    link: '/product#brown-pixel-counter',
-  },
-  {
-    icon: <ScienceIcon sx={{ fontSize: 36, color: '#9c27b0' }} />,
-    title: 'Molecule Binding Prediction',
-    description: 'Predict molecule binding affinity using deep learning models.',
-    link: '/product#molecule-binding',
-  },
-  {
-    icon: <HealthAndSafetyIcon sx={{ fontSize: 36, color: '#03a9f4' }} />,
-    title: 'Lung Disease Prediction',
-    description: 'Predict lung diseases from symptoms and patient history.',
-    link: '/product#lung-disease-prediction',
-  },
-  {
-    icon: <CoronavirusIcon sx={{ fontSize: 36, color: '#f44336' }} />,
-    title: 'Histology Abnormality Classifier',
-    description: 'Detect abnormal histology images and classify by pathology.',
-    link: '/product#histology-classifier',
-  },
-  {
-    icon: <HubIcon sx={{ fontSize: 36, color: '#607d8b' }} />,
-    title: 'Biology Tool Suite',
-    description: 'Central hub for all AI-powered biology and medical tools.',
-    link: '/product#biology-suite',
-  },
+  // New tools first
+  { name: "AI-powered Research Paper Analyzer", description: "Summarize, extract keywords, and visualize figures from scientific PDFs.", icon: "pi-file-pdf", link: "/research-analyzer", badge: "new" },
+  { name: "Lung Tumor Detection", description: "AI-powered detection of lung tumors from CT scans using deep learning models.", icon: "pi-microchip-ai", link: "/lung-cancer-detection", badge: "new" },
+  // Regular tools
+  { name: "IHC Insight", description: "Quantify protein markers in biological samples using AI-enhanced image analysis.", icon: "pi-microchip", link: "/ihc-insight" },
+  { name: "Molecule Binding Predictor", description: "Predict chemical interactions using SMILES strings and descriptor analysis.", icon: "pi-cog", link: "/molicule-binding" },
+  { name: "Cell Detection and Counting", description: "Automated detection and quantification of cells in microscopy images.", icon: "pi-box", link: "/cell-count" },
+  { name: "Heart Disease Detection", description: "Detect potential heart disease based on cardiovascular health metrics.", icon: "pi-heart-fill", link: "/heart-prediction" },
+  { name: "Lung Disease Prediction", description: "Predict respiratory diseases using patient data and diagnostic features.", icon: "pi-chart-line", link: "/lung-prediction" },
+  // Coming soon last
+  { name: "Lung Cancer Localization", description: "Localize lung cancer regions in CT scans using advanced image processing.", icon: "pi-map-marker", comingSoon: true },
+  { name: "Molecule Docking Simulator", description: "Simulate molecular docking to predict interaction potential and fit score.", icon: "pi-compass", comingSoon: true },
+  { name: "Biomedical Image Classifier", description: "Classify biomedical images using AI (microscopy, histology, radiology).", icon: "pi-image", comingSoon: true },
+  { name: "Genetic Mutation Visualizer", description: "Visualize and explore gene mutation patterns for genomics research.", icon: "pi-chart-bar", comingSoon: true },
+  { name: "Molecule Interaction Simulator", description: "Explore real-time interaction simulation between chemical structures.", icon: "pi-sliders-h", comingSoon: true },
+  { name: "Auto-Publish Research Tool", description: "Automatically generate structured drafts and insights for publishing.", icon: "pi-send", comingSoon: true },
 ];
 
+const MAX_VISIBLE = 6;
 const FeaturesSection = () => {
-  const [showAll, setShowAll] = useState(false);
-  const visibleFeatures = showAll ? features : features.slice(0, 8); // Show all or just first 8 (2 rows)
-
+  // Only show the first 6 items
+  const visibleFeatures = features.slice(0, MAX_VISIBLE);
   return (
-    <Box sx={{ py: 8, px: 4, backgroundColor: '#fafafa' }}>
+    <Box sx={{ py: 8, px: { xs: 1, md: 8 }, backgroundColor: '#fafafa' }}>
       <Typography variant="h4" align="center" sx={{ mb: 4, fontWeight: 'bold' }}>
-        Explore Our AI Tools
+        Explore Our Research Tools
       </Typography>
-
-      <Grid container spacing={4} justifyContent="center">
-        {visibleFeatures.map((feature, index) => (
-          <Grid item xs={12} sm={6} md={3} key={index}>
-            <Paper
-              elevation={0}
-              sx={{
-                height: '100%',
-                p: 3,
-                textAlign: 'center',
-                borderRadius: '16px',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                border: '1px solid #e0e0e0',
-                backgroundColor: '#ffffff',
-                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                '&:hover': {
-                  transform: 'translateY(-6px)',
-                  boxShadow: '0 6px 18px rgba(0,0,0,0.1)',
-                },
-              }}
-            >
-              <Box
-                sx={{
-                  bgcolor: '#f0f4ff',
-                  borderRadius: '50%',
-                  width: 64,
-                  height: 64,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  mb: 2,
-                  boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
-                }}
-              >
-                {feature.icon}
-              </Box>
-              <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
-                {feature.title}
-              </Typography>
-              <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                {feature.description}
-              </Typography>
-              <Button
-                variant="outlined"
-                size="small"
-                href={feature.link}
-                sx={{
-                  mt: 'auto',
-                  borderColor: '#1976d2',
-                  color: '#1976d2',
-                  '&:hover': {
-                    bgcolor: '#e3f2fd',
-                    borderColor: '#1565c0',
-                  },
-                  borderRadius: '20px',
-                  px: 2,
-                }}
-              >
-                Learn More
-              </Button>
-            </Paper>
-          </Grid>
+      <Timeline position="alternate">
+        {visibleFeatures.map((feature, idx) => (
+          <TimelineItem key={idx}>
+            <TimelineOppositeContent sx={{ flex: 0.15, display: { xs: 'none', sm: 'block' } }} />
+            <TimelineSeparator>
+              <TimelineDot sx={{ bgcolor: '#e3f2fd', boxShadow: '0 2px 8px #b3e5fc' }}>
+                {iconMap[feature.icon] || <HubIcon sx={{ fontSize: 28, color: '#607d8b' }} />}
+              </TimelineDot>
+              {idx < visibleFeatures.length - 1 && <TimelineConnector />}
+            </TimelineSeparator>
+            <TimelineContent>
+              <Paper elevation={2} sx={{ p: 3, borderRadius: 3, mb: 2 }}>
+                <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
+                  {feature.name}
+                  {feature.badge && (
+                    <span style={{ marginLeft: 8, color: '#38bdf8', fontSize: '0.8em', fontWeight: 500, verticalAlign: 'middle' }}>NEW</span>
+                  )}
+                  {feature.comingSoon && (
+                    <span style={{ marginLeft: 8, color: '#aaa', fontSize: '0.8em', fontWeight: 500, verticalAlign: 'middle' }}>Coming Soon</span>
+                  )}
+                </Typography>
+                <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+                  {feature.description}
+                </Typography>
+                {!feature.comingSoon && (
+                  <Button
+                    variant="outlined"
+                    size="small"
+                    href={feature.link}
+                    sx={{
+                      borderColor: '#1976d2',
+                      color: '#1976d2',
+                      '&:hover': {
+                        bgcolor: '#e3f2fd',
+                        borderColor: '#1565c0',
+                      },
+                      borderRadius: '20px',
+                      px: 2,
+                    }}
+                  >
+                    Learn More
+                  </Button>
+                )}
+              </Paper>
+            </TimelineContent>
+          </TimelineItem>
         ))}
-      </Grid>
-
-      <Box sx={{ textAlign: 'center', mt: 6 }}>
+      </Timeline>
+      <Box sx={{ textAlign: 'center', mt: 4 }}>
         <Button
           variant="contained"
           color="primary"
           size="large"
-          onClick={() => setShowAll(!showAll)}
+          href="/services"
           sx={{
             borderRadius: '25px',
             px: 4,
@@ -159,7 +132,7 @@ const FeaturesSection = () => {
             textTransform: 'none',
           }}
         >
-          {showAll ? 'Show Less' : 'Explore More'}
+          See More
         </Button>
       </Box>
     </Box>

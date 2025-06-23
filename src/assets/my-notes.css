@@ -1,0 +1,105 @@
+.notes-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.notes-container h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #222;
+}
+
+.notes-layout {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Sidebar */
+.notes-sidebar {
+  flex: 1;
+  border-right: 1px solid #ccc;
+  padding-right: 1rem;
+}
+
+.add-note-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+textarea {
+  min-height: 80px;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  resize: vertical;
+}
+
+button {
+  align-self: flex-start;
+  padding: 0.5rem 1rem;
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #005fa3;
+}
+
+.notes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.notes-list li {
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  background-color: #f7f7f7;
+  border-left: 4px solid #0077cc;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.notes-list li.selected {
+  background-color: #e6f2ff;
+}
+
+.notes-list li:hover {
+  background-color: #eaeaea;
+}
+
+.delete-btn {
+  background: none;
+  color: #d00000;
+  border: none;
+  cursor: pointer;
+}
+
+/* Note Preview */
+.note-preview {
+  flex: 2;
+  padding-left: 1rem;
+  border-left: 1px solid #ccc;
+}
+
+.note-preview h2 {
+  margin-bottom: 0.5rem;
+}
+
+.no-selection {
+  color: #777;
+  font-style: italic;
+}

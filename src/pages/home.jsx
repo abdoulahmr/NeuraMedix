@@ -2,6 +2,8 @@ import "aos/dist/aos.css";
 import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
+import Header from '../components/header';
+import Footer from '../components/footer';
 import HeroSection from "./../components/hero.jsx";
 import FeaturesSection from "./../components/features.jsx";
 import BenefitsSection from "./../components/benefits.jsx";
@@ -26,6 +28,7 @@ function Home() {
         <meta property="og:type" content="website" />
         <link rel="icon" href="/img/4.png" />
       </head>
+      <Header/>
       <HeroSection />
       <AboutSection />
       <FeaturesSection />
@@ -33,6 +36,7 @@ function Home() {
       <BenefitsSection />
       <TestimonialsSection />
       <CTASection />
+      <Footer />
     </>
   );
 }

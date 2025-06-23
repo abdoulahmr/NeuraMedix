@@ -4,6 +4,8 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
+import Header from '../components/header';
+import Footer from '../components/footer';
 
 const teamMembers = [
   {
@@ -319,26 +321,30 @@ const AboutUs = () => {
   const activeSection = sectionsData.find(section => section.id === activeSectionId);
 
   return (
-    <div className="about-us-wrapper">
-      <aside className="about-us-sidebar">
-        <h2 className="sidebar-heading">Our Story</h2>
-        <nav className="sidebar-nav">
-          {sectionsData.map((section) => (
-            <div
-              key={section.id}
-              className={`nav-item ${activeSectionId === section.id ? 'active' : ''}`}
-              onClick={() => setActiveSectionId(section.id)}
-            >
-              {section.title}
-            </div>
-          ))}
-        </nav>
-      </aside>
+    <div className="about-us-page">
+      <Header />
+      <div className="about-us-wrapper">
+        <aside className="about-us-sidebar">
+          <h2 className="sidebar-heading">Our Story</h2>
+          <nav className="sidebar-nav">
+            {sectionsData.map((section) => (
+              <div
+                key={section.id}
+                className={`nav-item ${activeSectionId === section.id ? 'active' : ''}`}
+                onClick={() => setActiveSectionId(section.id)}
+              >
+                {section.title}
+              </div>
+            ))}
+          </nav>
+        </aside>
 
-      <div className="about-us-content">
-        <h1>{activeSection.title}</h1>
-        {activeSection.content}
+        <div className="about-us-content">
+          <h1>{activeSection.title}</h1>
+          {activeSection.content}
+        </div>
       </div>
+      <Footer />
     </div>
   );
 };

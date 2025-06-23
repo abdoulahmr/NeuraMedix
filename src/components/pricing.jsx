@@ -28,7 +28,7 @@ const pricingTiers = [
   {
     id: 'starter',
     title: 'Starter',
-    price: 'Free or $9/month',
+    price: 'Free or 1200 DA/month',
     features: [
       { text: '1–2 tools (limited usage)', included: true },
       { text: 'No support', included: false },
@@ -42,7 +42,7 @@ const pricingTiers = [
   {
     id: 'researcher',
     title: 'Researcher',
-    price: '$29/month',
+    price: '3800 DA/month',
     features: [
       { text: 'Access to all tools', included: true },
       { text: 'Priority computation', included: true },
@@ -57,7 +57,7 @@ const pricingTiers = [
   {
     id: 'lab-pro',
     title: 'Lab Pro',
-    price: '$99/month or $999/year',
+    price: '13000 DA/month or 130000/year',
     features: [
       { text: 'All tools + batch analysis', included: true },
       { text: 'Team accounts (3–5 users)', included: true },

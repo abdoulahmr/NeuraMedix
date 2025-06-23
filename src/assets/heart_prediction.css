@@ -1,0 +1,122 @@
+/* General container styling */
+.container {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Title and description */
+.container h1 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.container p {
+  text-align: center;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+/* Error message */
+.error {
+  background-color: #ffe6e6;
+  color: #cc0000;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+/* Form columns layout */
+.form-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Form input styling */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: #2c3e50;
+}
+
+.form-group input,
+.form-group select {
+  padding: 0.5rem 0.7rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+/* Submit button */
+.submit-btn {
+  display: block;
+  width: 100%;
+  background: #3498db;
+  color: white;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: #2980b9;
+}
+
+/* Prediction result styling */
+.results-section {
+  background-color: #f4f9ff;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+  text-align: center;
+  color: #2c3e50;
+}
+
+.results-section p {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.results-section .risk {
+  font-weight: bold;
+  color: #e67e22;
+}
+
+/* Back link */
+.back-home {
+  display: inline-block;
+  margin-top: 2rem;
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.back-home:hover {
+  color: #21618c;
+}

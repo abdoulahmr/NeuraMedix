@@ -8,14 +8,14 @@ function Register() {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [loading, setLoading] = useState(false);
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault();
 
     setError('');
     setSuccess('');
 
-    // Client-side validation
     if (!email || !password || !confirmPassword) {
       setError('All fields are required.');
       return;
@@ -31,20 +31,21 @@ function Register() {
       return;
     }
 
+    if (!acceptedTerms) {
+      setError('You must accept the terms and policies to register.');
+      return;
+    }
+
     setLoading(true);
 
     try {
-      // --- UPDATED URL and BODY to match curl command ---
-      const response = await fetch('http://127.0.0.1:8000/api/register/', { // Updated URL
+      const response = await fetch('http://127.0.0.1:8000/api/register/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          // If your Django backend requires CSRF token for POST requests,
-          // you would need to retrieve it and include it here.
-          // Example: 'X-CSRFToken': getCookie('csrftoken'),
         },
         body: JSON.stringify({
-          username: email, // Using email as username as per common practice
+          username: email,
           email: email,
           password: password,
         }),
@@ -54,20 +55,18 @@ function Register() {
 
       if (response.ok) {
         setSuccess(data.message || 'Registration successful! You can now log in.');
-        // Optionally clear form fields on successful registration
         setEmail('');
         setPassword('');
         setConfirmPassword('');
+        setAcceptedTerms(false);
       } else {
-        // Handle API errors
-        // DRF validation errors often come with field-specific messages
         if (data.username) {
             setError('Username: ' + data.username.join(', '));
         } else if (data.email) {
             setError('Email: ' + data.email.join(', '));
         } else if (data.password) {
             setError('Password: ' + data.password.join(', '));
-        } else if (data.detail) { // Generic error from DRF, e.g., "Invalid credentials"
+        } else if (data.detail) {
             setError(data.detail);
         } else {
             setError(data.error || 'Registration failed. Please try again.');
@@ -82,59 +81,79 @@ function Register() {
   };
 
   return (
-    <div className="register-container">
-      <h2>Register</h2>
-      <p className="register-intro">Create your account to access our advanced tools.</p>
-
-      {error && <p className="register-message error-message">{error}</p>}
-      {success && <p className="register-message success-message">{success}</p>}
-
-      <form onSubmit={handleSubmit} className="register-form">
-        <div className="form-group">
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            aria-label="Email"
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            aria-label="Password"
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="confirmPassword">Confirm Password:</label>
-          <input
-            type="password"
-            id="confirmPassword"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-            aria-label="Confirm Password"
-          />
-        </div>
-
-        <button type="submit" className="register-button" disabled={loading}>
-          {loading ? 'Registering...' : 'Register'}
+    <div className="register-page">
+      <div className="register-back-button">
+        <button onClick={() => navigate(-1)} className="back-button">
+          <span className="back-arrow">&larr;</span>
         </button>
-      </form>
+      </div>
+    
+      <div className="register-container">
+        <h2>Register</h2>
+        <p className="register-intro">Create your account to access our advanced tools.</p>
 
-      <p className="login-link-text">
-        Already have an account? <a href="/login" className="login-link">Login here</a>
-        {/* If using React Router, replace <a> with <Link to="/login"> */}
-      </p>
+        {error && <p className="register-message error-message">{error}</p>}
+        {success && <p className="register-message success-message">{success}</p>}
+
+        <form onSubmit={handleSubmit} className="register-form">
+          <div className="form-group">
+            <label htmlFor="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              aria-label="Email"
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="password">Password:</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              aria-label="Password"
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="confirmPassword">Confirm Password:</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+              aria-label="Confirm Password"
+            />
+          </div>
+
+          <div className="form-group terms-group">
+            <input
+              type="checkbox"
+              id="terms"
+              checked={acceptedTerms}
+              onChange={e => setAcceptedTerms(e.target.checked)}
+              required
+            />
+            <label htmlFor="terms" className="terms-label">
+              I agree to the <a href="/terms" target="_blank" rel="noopener noreferrer">Terms of Service</a> and <a href="/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+            </label>
+          </div>
+
+          <button type="submit" className="register-button" disabled={loading}>
+            {loading ? 'Registering...' : 'Register'}
+          </button>
+        </form>
+
+        <p className="login-link-text">
+          Already have an account? <a href="/login" className="login-link">Login here</a>
+        </p>
+      </div>
     </div>
   );
 }

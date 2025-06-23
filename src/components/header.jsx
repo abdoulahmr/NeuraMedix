@@ -1,62 +1,49 @@
 import React, { useState, useEffect } from "react";
 import { Menubar } from "primereact/menubar";
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirection
+import { useNavigate } from 'react-router-dom';
 import "./../assets/header.css";
 
 function Header() {
-  const navigate = useNavigate(); // Initialize useNavigate hook
+  const navigate = useNavigate();
 
-  // State to manage authentication status
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  // Function to check authentication status
   const checkAuthStatus = () => {
     const token = localStorage.getItem('authToken');
-    setIsAuthenticated(!!token); // Set to true if token exists, false otherwise
+    setIsAuthenticated(!!token);
   };
 
-  // Run once on component mount to set initial auth status
   useEffect(() => {
     checkAuthStatus();
-
-    // Optional: Listen for changes in localStorage (e.g., from other tabs or direct changes)
-    // This makes the header react instantly to login/logout from anywhere.
     window.addEventListener('storage', checkAuthStatus);
-
-    // Cleanup listener on component unmount
     return () => {
       window.removeEventListener('storage', checkAuthStatus);
     };
-  }, []); // Empty dependency array means this runs once on mount
+  }, []);
 
-  // Logout handler
   const handleLogout = () => {
-    // Clear all authentication-related items from localStorage
     localStorage.removeItem('authToken');
     localStorage.removeItem('refreshToken');
     localStorage.removeItem('username');
     localStorage.removeItem('userId');
-
-    setIsAuthenticated(false); // Update state immediately
-    navigate('/login'); // Redirect to login page
+    setIsAuthenticated(false);
+    navigate('/login');
   };
 
-  // Define common menu items
   const commonItems = [
     { label: "Home", icon: "pi pi-fw pi-home", command: () => { navigate("/"); } },
-    { label: "Contact", icon: "pi pi-fw pi-phone", command: () => { navigate("/contact"); } },
-    { label: "About Us", icon: "pi pi-fw pi-info-circle", command: () => { navigate("/about"); } },
   ];
 
-  // Define authenticated-specific items
-  const authenticatedItems = [
+  /*const authenticatedItems = [
     { label: "Dashboard", icon: "pi pi-fw pi-chart-line", command: () => { navigate("/user-dashboard"); } },
+    { label: "My Notes", icon: "pi pi-fw pi-pen-to-square", command: () => { navigate("/my-notes"); } },
     {
       label: "Services",
       icon: "pi pi-fw pi-file",
       items: [
         { label: "Protein Marker Counter", command: () => { navigate("/ihc-insight"); } },
         { label: "Molecule Binding Predictor", command: () => { navigate("/molicule-binding"); }},
+        { label: "Research Paper Analyzer", command: () => { navigate("/research-analyzer"); }},
         { separator: true },
         { label: "Lung Tumor Detection", icon: "pi pi-fw pi-microchip-ai"},
         { label: "Lung Disease Prediction", icon: "pi pi-fw pi-microchip-ai" },
@@ -67,16 +54,27 @@ function Header() {
       ],
     },
     {
-      label: "Logout",
-      icon: "pi pi-fw pi-sign-out",
-      command: handleLogout, // Use the defined handleLogout function
-      className: 'menubar-logout-item' // Optional: add specific class for logout button styling
+      label: "Profile",
+      icon: "pi pi-fw pi-user",
+      items: [
+        { label: "View Profile", command: () => { navigate("/user-dashboard"); } },
+        { label: "Settings", command: () => { navigate("/user-dashboard"); } },
+        { separator: true },
+        {
+          label: "Logout",
+          icon: "pi pi-fw pi-sign-out",
+          command: handleLogout, 
+          className: 'menubar-logout-item'
+        },  
+      ],
     },
-  ];
+  ];*/
 
-  // Define unauthenticated-specific items
   const unauthenticatedItems = [
-    {
+    { label: "Services", icon: "pi pi-fw pi-briefcase", command: () => { navigate("/services"); } },
+    { label: "Contact", icon: "pi pi-fw pi-phone", command: () => { navigate("/contact"); } },
+    { label: "About Us", icon: "pi pi-fw pi-info-circle", command: () => { navigate("/about"); } },
+    /*{
       label: "Login",
       icon: "pi pi-fw pi-sign-in",
       command: () => { navigate("/login"); },
@@ -84,24 +82,23 @@ function Header() {
     },
     {
       label: "Register",
-      icon: "pi pi-fw pi-user-plus", // Changed to user-plus icon for register
+      icon: "pi pi-fw pi-user-plus",
       command: () => { navigate("/register"); },
       className: 'menubar-register-item'
-    },
+    },*/
   ];
 
-  // Combine items based on authentication status
   const menuItems = isAuthenticated
     ? [...commonItems, ...authenticatedItems]
     : [...commonItems, ...unauthenticatedItems];
 
   const start = (
-    <img
-      src="/img/3.png" // Ensure this path is correct for your logo
+    <a href="/"> <img
+      src="/img/3.png"
       alt="Logo"
       className="logo"
       style={{ height: '3rem' }}
-    />
+    /></a>
   );
 
   return (

@@ -47,6 +47,12 @@
   color: #38bdf8;
 }
 
+.hero-title, .hero-title span {
+  text-decoration: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
 .hero-subtitle {
   font-size: 1.2rem;
   margin-bottom: 2rem;

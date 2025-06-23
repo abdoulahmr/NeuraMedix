@@ -74,46 +74,53 @@ function Login() {
   };
 
   return (
-    <div className="login-container">
-      <h2>Login</h2>
-      <p className="login-intro">Access your account to continue.</p>
-
-      {error && <p className="login-message error-message">{error}</p>}
-      {success && <p className="login-message success-message">{success}</p>}
-
-      <form onSubmit={handleSubmit} className="login-form">
-        <div className="form-group">
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            aria-label="Email"
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            aria-label="Password"
-          />
-        </div>
-
-        <button type="submit" className="login-button" disabled={loading}>
-          {loading ? 'Logging in...' : 'Login'}
+    <div className="login-wrapper">
+      <div className="login-back-button">
+        <button onClick={() => navigate(-1)} className="back-button">
+          <span className="back-arrow">&larr;</span>
         </button>
-      </form>
+      </div>
+      <div className="login-container">
+        <h2>Login</h2>
+        <p className="login-intro">Access your account to continue.</p>
 
-      <p className="register-link-text">
-        Don't have an account? <a href="/register" className="register-link">Register here</a>
-      </p>
+        {error && <p className="login-message error-message">{error}</p>}
+        {success && <p className="login-message success-message">{success}</p>}
+
+        <form onSubmit={handleSubmit} className="login-form">
+          <div className="form-group">
+            <label htmlFor="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              aria-label="Email"
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="password">Password:</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              aria-label="Password"
+            />
+          </div>
+
+          <button type="submit" className="login-button" disabled={loading}>
+            {loading ? 'Logging in...' : 'Login'}
+          </button>
+        </form>
+
+        <p className="register-link-text">
+          Don't have an account? <a href="/register" className="register-link">Register here</a>
+        </p>
+      </div>
     </div>
   );
 }

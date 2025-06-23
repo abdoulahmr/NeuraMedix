@@ -7,10 +7,10 @@ export default function Footer() {
       <div className="footer-content">
         {/* Left: Nav Links */}
         <div className="footer-links">
-          <a href="#">About</a>
-          <a href="#">Contact</a>
-          <a href="#">Terms</a>
-          <a href="#">Privacy</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+          <a href="/terms">Terms</a>
+          <a href="/privacy">Privacy</a>
         </div>
 
         {/* Center: Email subscription */}
