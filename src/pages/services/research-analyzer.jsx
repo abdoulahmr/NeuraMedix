@@ -9,6 +9,7 @@ function ResearchAnalyzer() {
   const [summary, setSummary] = useState('');
   const [keywords, setKeywords] = useState([]);
   const [images, setImages] = useState([]);
+  const [methodology, setMethodology] = useState('');
   const [error, setError] = useState('');
   const token = localStorage.getItem('authToken');
 
@@ -23,6 +24,7 @@ function ResearchAnalyzer() {
     setSummary('');
     setKeywords([]);
     setImages([]);
+    setMethodology('');
 
     const formData = new FormData();
     formData.append('file', file);
@@ -31,7 +33,7 @@ function ResearchAnalyzer() {
       const res = await fetch('http://127.0.0.1:8000/api/research_analyzer/', {
         method: 'POST',
         headers: {
-          Authorization: `Bearer ${token}`
+          'Authorization': `Bearer ${token}`
         },
         body: formData,
       });
@@ -45,6 +47,7 @@ function ResearchAnalyzer() {
       setSummary(data.summary);
       setKeywords(data.keywords || []);
       setImages(data.images || []);
+      setMethodology(data.methodology || '');
     } catch (err) {
       setError(err.message);
     } finally {
@@ -121,6 +124,13 @@ function ResearchAnalyzer() {
                   </div>
                 ))}
               </div>
+            </div>
+          )}
+
+          {methodology && (
+            <div className="results-block">
+              <h2>Methodology</h2>
+              <p>{methodology}</p>
             </div>
           )}
         </div>

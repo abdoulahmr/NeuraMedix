@@ -34,7 +34,7 @@ function Header() {
     { label: "Home", icon: "pi pi-fw pi-home", command: () => { navigate("/"); } },
   ];
 
-  /*const authenticatedItems = [
+  const authenticatedItems = [
     { label: "Dashboard", icon: "pi pi-fw pi-chart-line", command: () => { navigate("/user-dashboard"); } },
     { label: "My Notes", icon: "pi pi-fw pi-pen-to-square", command: () => { navigate("/my-notes"); } },
     {
@@ -68,13 +68,13 @@ function Header() {
         },  
       ],
     },
-  ];*/
+  ];
 
   const unauthenticatedItems = [
     { label: "Services", icon: "pi pi-fw pi-briefcase", command: () => { navigate("/services"); } },
     { label: "Contact", icon: "pi pi-fw pi-phone", command: () => { navigate("/contact"); } },
     { label: "About Us", icon: "pi pi-fw pi-info-circle", command: () => { navigate("/about"); } },
-    /*{
+    {
       label: "Login",
       icon: "pi pi-fw pi-sign-in",
       command: () => { navigate("/login"); },
@@ -85,7 +85,7 @@ function Header() {
       icon: "pi pi-fw pi-user-plus",
       command: () => { navigate("/register"); },
       className: 'menubar-register-item'
-    },*/
+    },
   ];
 
   const menuItems = isAuthenticated

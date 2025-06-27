@@ -52,6 +52,13 @@ function Services() {
       link: "/lung-prediction",
     },
     {
+      name: "Auto-Publish Research Tool",
+      description: "Automatically generate structured drafts and insights for publishing.",
+      icon: "pi pi-fw pi-send",
+      link: "/auto-publish-tool",      
+      badge: "new",
+    },
+    {
       name: "Lung Cancer Localization",
       description: "Localize lung cancer regions in CT scans using advanced image processing.",
       icon: "pi pi-fw pi-map-marker",
@@ -79,12 +86,6 @@ function Services() {
       name: "Molecule Interaction Simulator",
       description: "Explore real-time interaction simulation between chemical structures.",
       icon: "pi pi-fw pi-sliders-h",
-      comingSoon: true,
-    },
-    {
-      name: "Auto-Publish Research Tool",
-      description: "Automatically generate structured drafts and insights for publishing.",
-      icon: "pi pi-fw pi-send",
       comingSoon: true,
     },
   ];
