@@ -74,6 +74,7 @@ function Header() {
     { label: "Services", icon: "pi pi-fw pi-briefcase", command: () => { navigate("/services"); } },
     { label: "Contact", icon: "pi pi-fw pi-phone", command: () => { navigate("/contact"); } },
     { label: "About Us", icon: "pi pi-fw pi-info-circle", command: () => { navigate("/about"); } },
+    /*
     {
       label: "Login",
       icon: "pi pi-fw pi-sign-in",
@@ -86,6 +87,7 @@ function Header() {
       command: () => { navigate("/register"); },
       className: 'menubar-register-item'
     },
+    */
   ];
 
   const menuItems = isAuthenticated

@@ -34,6 +34,7 @@ const iconMap = {
 };
 
 const services = [
+  { name: "Auto-Publish Research Tool", description: "Automatically generate structured drafts and insights for publishing. This tool will soon help researchers create ready-to-publish manuscripts from raw data.", icon: "pi-send", badge: "new" },
   { name: "AI-powered Research Paper Analyzer", description: "Summarize, extract keywords, and visualize figures from scientific PDFs. Upload a research paper and get a concise summary, key concepts, and all figures extracted for quick review.", icon: "pi-file-pdf", link: "/research-analyzer", badge: "new" },
   { name: "Lung Tumor Detection", description: "AI-powered detection of lung tumors from CT scans using deep learning models. Upload CT images to automatically highlight and localize tumor regions, supporting early diagnosis.", icon: "pi-microchip-ai", link: "/lung-cancer-detection", badge: "new" },
   { name: "IHC Insight", description: "Quantify protein markers in biological samples using AI-enhanced image analysis. Analyze histology images to count and visualize stained regions, supporting pathology workflows.", icon: "pi-microchip", link: "/ihc-insight" },
@@ -46,7 +47,6 @@ const services = [
   { name: "Biomedical Image Classifier", description: "Classify biomedical images using AI (microscopy, histology, radiology). The classifier will soon support automated labeling and sorting of diverse biomedical images.", icon: "pi-image", comingSoon: true },
   { name: "Genetic Mutation Visualizer", description: "Visualize and explore gene mutation patterns for genomics research. This tool will provide interactive mutation maps and analytics for genetic studies.", icon: "pi-chart-bar", comingSoon: true },
   { name: "Molecule Interaction Simulator", description: "Explore real-time interaction simulation between chemical structures. The simulator will allow dynamic modeling of molecular behavior and interactions.", icon: "pi-sliders-h", comingSoon: true },
-  { name: "Auto-Publish Research Tool", description: "Automatically generate structured drafts and insights for publishing. This tool will soon help researchers create ready-to-publish manuscripts from raw data.", icon: "pi-send", comingSoon: true },
 ];
 
 const ServicePage = () => {
