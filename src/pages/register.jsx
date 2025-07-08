@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './../assets/register.css';
+import { useNavigate } from 'react-router-dom';
 
 function Register() {
   const [email, setEmail] = useState('');
@@ -80,10 +81,14 @@ function Register() {
     }
   };
 
+  // Add useNavigate import from react-router-dom
+
+  const navigate = useNavigate();
+
   return (
     <div className="register-page">
       <div className="register-back-button">
-        <button onClick={() => navigate(-1)} className="back-button">
+        <button onClick={() => navigate("/")} className="back-button">
           <span className="back-arrow">&larr;</span>
         </button>
       </div>

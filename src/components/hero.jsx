@@ -1,30 +1,42 @@
 import React from "react";
 import "./../assets/hero.css";
 
-function HeroSection() {
+const Hero = () => {
+  const handleStartFreeTrial = () => {
+    window.location.href = "/register";
+  };
+
   return (
     <section className="hero-section">
-        <div className="hero-container">
-            <video className="hero-video" autoPlay muted loop playsInline>
-                <source src="/vid/27019-361107952_large.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-            </video>
-            <div className="hero-overlay"></div>  
-            
-            <div className="hero-content">
-                <h1 className="hero-title">
-                    Accelerating Scientific Discovery with <span>AI</span>
-                </h1>
-                <p className="hero-subtitle">
-                    All-in-one AI platform for detection, analysis, and prediction in biomedical research.
-                </p>
-                <button className="hero-cta" onClick={() => window.location.href = '/services'}>
-                    Get Started
-                </button>
-            </div>
+      <div className="hero-content-left">
+        <span className="hero-tag">AI-Powered Biomedical Platform</span>
+
+        <h1 className="hero-heading">
+          Accelerate Medical Diagnostics with <span className="highlight-text">AI Precision</span>
+        </h1>
+
+        <p className="hero-description">
+          Enhance diagnostic and research workflows with intelligent tools that analyze complex medical data
+          with speed, precision, and explainability.
+        </p>
+
+        <div className="hero-actions">
+          <button className="start-free-trial-button" onClick={handleStartFreeTrial}>Start Free Trial</button>
+          <button className="watch-demo-button">
+            <svg className="play-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+            Watch Demo
+          </button>
         </div>
+      </div>
+
+      <div className="hero-image-right">
+        <img src="./img/hero-image.png" alt="AI-Powered Medical Diagnostics" className="hero-illustration" />
+      </div>
     </section>
   );
-}
+};
 
-export default HeroSection;
+export default Hero;
+

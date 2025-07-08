@@ -1,142 +1,88 @@
 import React from 'react';
-import {
-  Box,
-  Typography,
-  Button,
-  Paper,
-} from '@mui/material';
-import {
-  Timeline,
-  TimelineItem,
-  TimelineSeparator,
-  TimelineConnector,
-  TimelineContent,
-  TimelineDot,
-  TimelineOppositeContent,
-} from '@mui/lab';
-import {
-  MonitorHeart as MonitorHeartIcon,
-  Favorite as FavoriteIcon,
-  CellTower as CellTowerIcon,
-  FindInPage as FindInPageIcon,
-  Science as ScienceIcon,
-  HealthAndSafety as HealthAndSafetyIcon,
-  Coronavirus as CoronavirusIcon,
-  Hub as HubIcon,
-} from '@mui/icons-material';
+import './../assets/Features.css'; // Import the CSS for styling
 
-// Map pi icons to MUI icons for visual consistency
-const iconMap = {
-  'pi-microchip': <HubIcon sx={{ fontSize: 28, color: '#3f51b5' }} />,
-  'pi-cog': <ScienceIcon sx={{ fontSize: 28, color: '#9c27b0' }} />,
-  'pi-box': <CellTowerIcon sx={{ fontSize: 28, color: '#4caf50' }} />,
-  'pi-file-pdf': <FindInPageIcon sx={{ fontSize: 28, color: '#ff9800' }} />,
-  'pi-heart-fill': <FavoriteIcon sx={{ fontSize: 28, color: '#e91e63' }} />,
-  'pi-microchip-ai': <MonitorHeartIcon sx={{ fontSize: 28, color: '#3f51b5' }} />,
-  'pi-chart-line': <HealthAndSafetyIcon sx={{ fontSize: 28, color: '#03a9f4' }} />,
-  'pi-map-marker': <HubIcon sx={{ fontSize: 28, color: '#607d8b' }} />,
-  'pi-compass': <ScienceIcon sx={{ fontSize: 28, color: '#9c27b0' }} />,
-  'pi-image': <CoronavirusIcon sx={{ fontSize: 28, color: '#f44336' }} />,
-  'pi-chart-bar': <HubIcon sx={{ fontSize: 28, color: '#607d8b' }} />,
-  'pi-sliders-h': <HubIcon sx={{ fontSize: 28, color: '#607d8b' }} />,
-  'pi-send': <HubIcon sx={{ fontSize: 28, color: '#607d8b' }} />,
-};
+const Features = () => {
+  const featureData = [
+    {
+      icon: (
+        <svg className="feature-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C9.27 2 7 4.27 7 7v2H5c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-8c0-1.1-.9-2-2-2h-2V7c0-2.73-2.27-5-5-5zm0 2c1.66 0 3 1.34 3 3v2H9V7c0-1.66 1.34-3 3-3zm-6 9h12v6H6v-6zm6 1c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"/>
+        </svg>
+      ),
+      title: 'Lung Cancer Detection',
+      description: 'AI-powered analysis of CT scans for early detection of lung nodules and cancer classification with high precision.',
+      link: '#',
+    },
+    {
+      icon: (
+        <svg className="feature-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+        </svg>
+      ),
+      title: 'Heart Disease Prediction',
+      description: 'Predictive analytics for cardiovascular risk assessment based on patient data and imaging results.',
+      link: '#',
+    },
+    {
+      icon: (
+        <svg className="feature-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 2c2.76 0 5 2.24 5 5 0 2.88-2.88 7.19-5 9.88C9.92 16.19 7 11.92 7 9c0-2.76 2.24-5 5-5zm0 2c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+        </svg>
+      ),
+      title: 'Cell Analysis',
+      description: 'Automated counting and classification of cells from microscopic images for research and diagnostic applications.',
+      link: '#',
+    },
+    {
+      icon: (
+        <svg className="feature-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>
+      ),
+      title: 'Histological Analysis',
+      description: 'Intelligent tissue sample analysis for pathology departments with automated feature detection.',
+      link: '#',
+    },
+    {
+      icon: (
+        <svg className="feature-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+        </svg>
+      ),
+      title: 'Molecular Binding Prediction',
+      description: 'AI models that predict molecular interactions for drug discovery and personalized medicine applications.',
+      link: '#',
+    },
+    {
+      icon: (
+        <svg className="feature-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+        </svg>
+      ),
+      title: 'Neurological Assessment',
+      description: 'Advanced neural imaging analysis to detect abnormalities and assist in neurological diagnostics.',
+      link: '#',
+    },
+  ];
 
-const features = [
-  // New tools first
-  { name: "AI-powered Research Paper Analyzer", description: "Summarize, extract keywords, and visualize figures from scientific PDFs.", icon: "pi-file-pdf", link: "/research-analyzer", badge: "new" },
-  { name: "Lung Tumor Detection", description: "AI-powered detection of lung tumors from CT scans using deep learning models.", icon: "pi-microchip-ai", link: "/lung-cancer-detection", badge: "new" },
-  // Regular tools
-  { name: "IHC Insight", description: "Quantify protein markers in biological samples using AI-enhanced image analysis.", icon: "pi-microchip", link: "/ihc-insight" },
-  { name: "Molecule Binding Predictor", description: "Predict chemical interactions using SMILES strings and descriptor analysis.", icon: "pi-cog", link: "/molicule-binding" },
-  { name: "Cell Detection and Counting", description: "Automated detection and quantification of cells in microscopy images.", icon: "pi-box", link: "/cell-count" },
-  { name: "Heart Disease Detection", description: "Detect potential heart disease based on cardiovascular health metrics.", icon: "pi-heart-fill", link: "/heart-prediction" },
-  { name: "Lung Disease Prediction", description: "Predict respiratory diseases using patient data and diagnostic features.", icon: "pi-chart-line", link: "/lung-prediction" },
-  // Coming soon last
-  { name: "Lung Cancer Localization", description: "Localize lung cancer regions in CT scans using advanced image processing.", icon: "pi-map-marker", comingSoon: true },
-  { name: "Molecule Docking Simulator", description: "Simulate molecular docking to predict interaction potential and fit score.", icon: "pi-compass", comingSoon: true },
-  { name: "Biomedical Image Classifier", description: "Classify biomedical images using AI (microscopy, histology, radiology).", icon: "pi-image", comingSoon: true },
-  { name: "Genetic Mutation Visualizer", description: "Visualize and explore gene mutation patterns for genomics research.", icon: "pi-chart-bar", comingSoon: true },
-  { name: "Molecule Interaction Simulator", description: "Explore real-time interaction simulation between chemical structures.", icon: "pi-sliders-h", comingSoon: true },
-  { name: "Auto-Publish Research Tool", description: "Automatically generate structured drafts and insights for publishing.", icon: "pi-send", comingSoon: true },
-];
-
-const MAX_VISIBLE = 6;
-const FeaturesSection = () => {
-  // Only show the first 6 items
-  const visibleFeatures = features.slice(0, MAX_VISIBLE);
   return (
-    <Box sx={{ py: 8, px: { xs: 1, md: 8 }, backgroundColor: '#fafafa' }}>
-      <Typography variant="h4" align="center" sx={{ mb: 4, fontWeight: 'bold' }}>
-        Explore Our Research Tools
-      </Typography>
-      <Timeline position="alternate">
-        {visibleFeatures.map((feature, idx) => (
-          <TimelineItem key={idx}>
-            <TimelineOppositeContent sx={{ flex: 0.15, display: { xs: 'none', sm: 'block' } }} />
-            <TimelineSeparator>
-              <TimelineDot sx={{ bgcolor: '#e3f2fd', boxShadow: '0 2px 8px #b3e5fc' }}>
-                {iconMap[feature.icon] || <HubIcon sx={{ fontSize: 28, color: '#607d8b' }} />}
-              </TimelineDot>
-              {idx < visibleFeatures.length - 1 && <TimelineConnector />}
-            </TimelineSeparator>
-            <TimelineContent>
-              <Paper elevation={2} sx={{ p: 3, borderRadius: 3, mb: 2 }}>
-                <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
-                  {feature.name}
-                  {feature.badge && (
-                    <span style={{ marginLeft: 8, color: '#38bdf8', fontSize: '0.8em', fontWeight: 500, verticalAlign: 'middle' }}>NEW</span>
-                  )}
-                  {feature.comingSoon && (
-                    <span style={{ marginLeft: 8, color: '#aaa', fontSize: '0.8em', fontWeight: 500, verticalAlign: 'middle' }}>Coming Soon</span>
-                  )}
-                </Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                  {feature.description}
-                </Typography>
-                {!feature.comingSoon && (
-                  <Button
-                    variant="outlined"
-                    size="small"
-                    href={feature.link}
-                    sx={{
-                      borderColor: '#1976d2',
-                      color: '#1976d2',
-                      '&:hover': {
-                        bgcolor: '#e3f2fd',
-                        borderColor: '#1565c0',
-                      },
-                      borderRadius: '20px',
-                      px: 2,
-                    }}
-                  >
-                    Learn More
-                  </Button>
-                )}
-              </Paper>
-            </TimelineContent>
-          </TimelineItem>
+    <section className="features-section">
+      <div className="features-grid">
+        {featureData.map((feature, index) => (
+          <div className="feature-card" key={index}>
+            <div className="feature-icon-container">
+              {feature.icon}
+            </div>
+            <h3 className="feature-title">{feature.title}</h3>
+            <p className="feature-description">{feature.description}</p>
+            <a href={feature.link} className="learn-more-link">
+              Learn more <span className="arrow-icon">&rarr;</span>
+            </a>
+          </div>
         ))}
-      </Timeline>
-      <Box sx={{ textAlign: 'center', mt: 4 }}>
-        <Button
-          variant="contained"
-          color="primary"
-          size="large"
-          href="/services"
-          sx={{
-            borderRadius: '25px',
-            px: 4,
-            py: 1.5,
-            fontWeight: 'bold',
-            textTransform: 'none',
-          }}
-        >
-          See More
-        </Button>
-      </Box>
-    </Box>
+      </div>
+    </section>
   );
 };
 
-export default FeaturesSection;
+export default Features;

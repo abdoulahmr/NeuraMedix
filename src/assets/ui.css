@@ -1,0 +1,74 @@
+/* UI Component Styles */
+.ui-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 40px;
+  background-color: #f8fafc;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.ui-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  max-width: 800px;
+}
+
+.ui-description {
+  font-size: 1.25rem;
+  color: #64748b;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+.ui-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.ui-image:hover {
+  transform: scale(1.02);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .ui-container {
+    padding: 60px 20px;
+  }
+  
+  .ui-title {
+    font-size: 2.5rem;
+  }
+  
+  .ui-description {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ui-container {
+    padding: 40px 15px;
+  }
+  
+  .ui-title {
+    font-size: 2rem;
+  }
+  
+  .ui-description {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+}

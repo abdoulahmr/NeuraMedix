@@ -70,7 +70,7 @@ const pricingTiers = [
   },
 ];
 
-export default function PricingSection() {
+export default function Pricing() {
   useEffect(() => {
     Aos.init({ duration: 800, easing: "ease-in-out", once: true });
   }, []);
@@ -83,7 +83,7 @@ export default function PricingSection() {
           component="h2"
           align="center"
           gutterBottom
-          sx={{ fontWeight: 700, color: '#1a237e', mb: 6 }}
+          sx={{ fontWeight: 700, color: '#0c6f99', mb: 6 }}
           data-aos="fade-up"
         >
           Flexible Plans for Every Research Need

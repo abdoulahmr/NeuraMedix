@@ -1,0 +1,256 @@
+.lungiq-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 40px;
+  background-color: #add8e65a;
+  font-family: 'Inter', sans-serif;
+  gap: 60px;
+  flex-wrap: wrap;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  margin: 40px auto;
+  max-width: 1200px;
+}
+
+.lungiq-content-left {
+  flex: 1;
+  min-width: 300px;
+  max-width: 550px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.lungiq-tag {
+  background-color: #fff;
+  color: #2da2ce;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  white-space: nowrap;
+}
+
+.lungiq-heading {
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.lungiq-description {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.lungiq-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px 0;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  font-size: 17px;
+  color: #333;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.checkbox-icon {
+  color: #2da2ce;
+  font-size: 24px;
+  margin-right: 10px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.lungiq-actions {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.try-lungiq-button {
+  background: linear-gradient(90deg, #1699C6, #0c6f99);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  box-shadow: 0 4px 15px rgba(138, 43, 226, 0.2);
+}
+
+.try-lungiq-button:hover {
+  opacity: 0.9;
+}
+
+.view-demo-button {
+  background: none;
+  border: 2px solid #ccc;
+  color: #555;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.view-demo-button:hover {
+  border-color: #2da2ce;
+  color: #2da2ce;
+}
+
+.lungiq-image-right {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lungiq-illustration {
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 1024px) {
+  .lungiq-section {
+    padding: 60px 30px;
+    gap: 40px;
+  }
+
+  .lungiq-heading {
+    font-size: 36px;
+  }
+
+  .lungiq-description {
+    font-size: 17px;
+  }
+
+  .feature-item {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  .checkbox-icon {
+    font-size: 22px;
+  }
+
+  .try-lungiq-button,
+  .view-demo-button {
+    padding: 12px 25px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .lungiq-section {
+    flex-direction: column;
+    padding: 50px 20px;
+    text-align: center;
+    margin: 30px auto;
+  }
+
+  .lungiq-content-left {
+    align-items: center;
+    max-width: 100%;
+  }
+
+  .lungiq-tag {
+    margin-bottom: 15px;
+  }
+
+  .lungiq-heading {
+    font-size: 32px;
+    margin-bottom: 15px;
+  }
+
+  .lungiq-description {
+    font-size: 16px;
+    margin-bottom: 25px;
+  }
+
+  .lungiq-features-list {
+    margin-bottom: 25px;
+    width: 100%;
+  }
+
+  .feature-item {
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    padding: 0 10px;
+    margin-bottom: 10px;
+  }
+
+  .checkbox-icon {
+    margin-right: 8px;
+    font-size: 20px;
+  }
+
+  .lungiq-actions {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .lungiq-image-right {
+    width: 100%;
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lungiq-section {
+    padding: 40px 15px;
+    margin: 20px auto;
+  }
+
+  .lungiq-tag {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .lungiq-heading {
+    font-size: 28px;
+  }
+
+  .lungiq-description {
+    font-size: 15px;
+  }
+
+  .try-lungiq-button,
+  .view-demo-button {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 15px;
+  }
+
+  .lungiq-actions {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .feature-item {
+    font-size: 15px;
+    margin-bottom: 8px;
+    padding: 0;
+  }
+  .checkbox-icon {
+    font-size: 18px;
+  }
+}

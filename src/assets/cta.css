@@ -1,17 +1,18 @@
 .cta-section {
-  background: linear-gradient(135deg, #2563eb, #1e40af);
+  background: linear-gradient(90deg, #1699C6, #0c6f99);
   color: #fff;
   text-align: center;
   padding: 4rem 2rem;
   border-radius: 1.5rem;
   margin: 4rem auto;
   max-width: 900px;
-}
+} 
 
 .cta-heading {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 1rem;
+  color: #ffffff;
 }
 
 .cta-subheading {
