@@ -8,7 +8,7 @@ import Header from '../components/header';
 import Footer from '../components/footer';
 import Hero from '../components/hero.jsx';
 import TrustedBy from '../components/trustedby.jsx';
-import LungIQ from '../components/lungIQ.jsx';
+import LungIQ from '../components/lungIq.jsx';
 import Features from '../components/features.jsx';
 import Benefits from '../components/benefits.jsx';
 import UI from "../components/ui.jsx";
