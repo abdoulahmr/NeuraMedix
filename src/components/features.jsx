@@ -1,5 +1,5 @@
 import React from 'react';
-import './../assets/Features.css'; // Import the CSS for styling
+import './../assets/features.css'; // Import the CSS for styling
 
 const Features = () => {
   const featureData = [
