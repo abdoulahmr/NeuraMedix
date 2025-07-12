@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './../../assets/research-analyzer.css';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 
 function ResearchAnalyzer() {
+  const navigate = useNavigate();
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
   const [summary, setSummary] = useState('');
@@ -12,6 +14,13 @@ function ResearchAnalyzer() {
   const [methodology, setMethodology] = useState('');
   const [error, setError] = useState('');
   const token = localStorage.getItem('authToken');
+
+  // Authentication check
+  useEffect(() => {
+    if (!token) {
+      navigate('/login');
+    }
+  }, [token, navigate]);
 
   const handleUpload = async () => {
     if (!file) {
@@ -30,7 +39,7 @@ function ResearchAnalyzer() {
     formData.append('file', file);
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/research_analyzer/', {
+      const res = await fetch('http://164.92.167.174/api/research_analyzer/', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`

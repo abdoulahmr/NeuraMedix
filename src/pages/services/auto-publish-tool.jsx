@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Container, Typography, TextField, Button, Grid,
   Box, Card, CardContent, CardMedia, Chip, Stack, CircularProgress, Stepper, Step, StepLabel, IconButton,
@@ -9,8 +10,7 @@ import DownloadIcon from '@mui/icons-material/Download';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
-import Header from '../../components/header';
-import Footer from '../../components/footer';
+import Aside from '../../components/aside';
 
 const steps = [
   'Metadata',
@@ -21,6 +21,16 @@ const steps = [
 ];
 
 function AutoPublishTool() {
+  const navigate = useNavigate();
+
+  // Authentication check
+  useEffect(() => {
+    const token = localStorage.getItem('authToken');
+    if (!token) {
+      navigate('/login');
+    }
+  }, [navigate]);
+
   // Stepper state
   const [activeStep, setActiveStep] = useState(0);
 
@@ -57,6 +67,7 @@ function AutoPublishTool() {
   const [tableRows, setTableRows] = useState(2);
   const [tableCols, setTableCols] = useState(2);
   const [tableData, setTableData] = useState([["", ""], ["", ""]]);
+  const [isAsideCollapsed, setIsAsideCollapsed] = useState(false);
 
   // Handlers for stepper
   const handleNext = async () => {
@@ -111,7 +122,7 @@ function AutoPublishTool() {
     setLoadingKeywords(true);
     try {
       const allText = sections.map(s => s.text).join('\n');
-      const res = await fetch('http://127.0.0.1:8000/api/auto_publish/', {
+      const res = await fetch('http://164.92.167.174/api/auto_publish/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ mode: 'keywords', text: allText })
@@ -130,7 +141,7 @@ function AutoPublishTool() {
     setLoadingAbstract(true);
     try {
       const allText = sections.map(s => s.text).join('\n');
-      const res = await fetch('http://127.0.0.1:8000/api/auto_publish/', {
+      const res = await fetch('http://164.92.167.174/api/auto_publish/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ mode: 'abstract', text: allText })
@@ -168,7 +179,7 @@ function AutoPublishTool() {
       tables.forEach((table) => formData.append('tables', new Blob([JSON.stringify(table)], { type: 'application/json' })));
       // charts.forEach((chart) => formData.append('charts', new Blob([JSON.stringify(chart)], { type: 'application/json' })));
 
-      const res = await fetch('http://127.0.0.1:8000/api/auto_publish/', {
+      const res = await fetch('http://164.92.167.174/api/auto_publish/', {
         method: 'POST',
         body: formData
       });
@@ -462,14 +473,20 @@ function AutoPublishTool() {
 
   return (
     <>
-      <Header />
-      <Container maxWidth="md" sx={{ py: 5 }}>
-        <Typography variant="h4" gutterBottom>
-          Auto-Publish Tool
-        </Typography>
-        <Typography variant="body1" sx={{ mb: 3 }}>
-          Format research sections, extract insights, and compile a PDF for journals like Elsevier or Springer.
-        </Typography>
+      <div className="app-layout">
+        <Aside
+          isCollapsed={isAsideCollapsed}
+          onToggle={() => setIsAsideCollapsed(!isAsideCollapsed)}
+          activeItem="auto-publish"
+        />
+        <div className={`main-content ${isAsideCollapsed ? 'collapsed' : ''}`}>
+          <Container maxWidth="md" sx={{ py: 5 }}>
+            <Typography variant="h4" gutterBottom>
+              Auto-Publish Tool
+            </Typography>
+            <Typography variant="body1" sx={{ mb: 3 }}>
+              Format research sections, extract insights, and compile a PDF for journals like Elsevier or Springer.
+            </Typography>
         <Stepper activeStep={activeStep} alternativeLabel sx={{ mb: 4 }}>
           {steps.map((label) => (
             <Step key={label}>
@@ -487,7 +504,8 @@ function AutoPublishTool() {
           )}
         </Box>
       </Container>
-      <Footer />
+        </div>
+      </div>
 
       {/* Table Dialog */}
       <Dialog open={tableDialog.open} onClose={closeTableDialog} maxWidth="md" fullWidth>
@@ -534,4 +552,3 @@ function AutoPublishTool() {
 }
 
 export default AutoPublishTool;
-git 

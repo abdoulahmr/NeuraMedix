@@ -1,13 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './../../assets/lung_detection.css';
 import Header from '../../components/header.jsx';
 import Footer from '../../components/footer.jsx';
 
 function LungCancerDetection() {
+  const navigate = useNavigate();
   const [file, setFile] = useState(null);
   const [result, setResult] = useState(null);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+
+  // Authentication check
+  useEffect(() => {
+    const token = localStorage.getItem('authToken');
+    if (!token) {
+      navigate('/login');
+    }
+  }, [navigate]);
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
@@ -31,7 +41,7 @@ function LungCancerDetection() {
     setResult(null);
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/lung_cancer_detection/', {
+      const response = await fetch('http://164.92.167.174/api/lung_cancer_detection/', {
         method: 'POST',
         body: formData,
       });

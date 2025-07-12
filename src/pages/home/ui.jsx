@@ -1,7 +1,7 @@
 
 
 import React from 'react';
-import '../assets/ui.css';
+import './../../assets/ui.css';
 
 function UI(){
     return (

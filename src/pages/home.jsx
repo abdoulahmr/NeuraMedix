@@ -6,14 +6,14 @@ import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import Header from '../components/header';
 import Footer from '../components/footer';
-import Hero from '../components/hero.jsx';
-import TrustedBy from '../components/trustedby.jsx';
-import LungIQ from '../components/lungIq.jsx';
-import Features from '../components/features.jsx';
-import Benefits from '../components/benefits.jsx';
-import UI from "../components/ui.jsx";
-import CTA from "../components/cta.jsx";
-import Pricing from "../components/pricing.jsx";
+import Hero from './home/hero.jsx';
+import TrustedBy from './home/trustedby.jsx';
+import LungIQ from './home/lungIq.jsx';
+import Features from './home/features.jsx';
+import Benefits from './home/benefits.jsx';
+import UI from "./home/ui.jsx";
+import CTA from "./home/cta.jsx";
+import Pricing from "./home/pricing.jsx";
  
 function Home() {
   useEffect(() => {

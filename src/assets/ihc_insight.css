@@ -1,22 +1,40 @@
-/* General container styling */
-.ihc-insight-container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 30px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #333;
-    text-align: center; /* Center main headings and paragraphs */
+/* Layout styles for aside integration */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
 }
 
-h1 {
+.main-content {
+  flex: 1;
+  margin-left: 250px; /* Default aside width */
+  transition: margin-left 0.3s ease;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+}
+
+.main-content.collapsed {
+  margin-left: 70px; /* Collapsed aside width */
+}
+
+/* General container styling */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+ihc-insight-header h1 {
     color: #2c3e50;
     margin-bottom: 25px;
     font-size: 2.2em;
 }
-
+ 
 /* Error message styling */
 .error-message {
     color: #e74c3c;
@@ -219,7 +237,7 @@ h1 {
         margin: 20px auto;
         padding: 20px;
     }
-    h1 {
+    ihc-insight-headerh1 {
         font-size: 1.8em;
     }
     .analyze-button {

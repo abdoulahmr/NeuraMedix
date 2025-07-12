@@ -37,14 +37,6 @@ function Services() {
       icon: "pi pi-fw pi-heart-fill",
       link: "/heart-prediction",
     },
-    
-    {
-      name: "Lung Tumor Detection",
-      description: "AI-powered detection of lung tumors from CT scans using deep learning models.",
-      icon: "pi pi-fw pi-microchip-ai",
-      link: "/lung-cancer-detection",
-      badge: "new",
-    },
     {
       name: "Lung Disease Prediction",
       description: "Predict respiratory diseases using patient data and diagnostic features.",

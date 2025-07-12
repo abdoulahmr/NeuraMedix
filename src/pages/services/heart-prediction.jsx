@@ -1,10 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './../../assets/heart_prediction.css'; // Update path as needed
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 
 function HeartPrediction() {
+    const navigate = useNavigate();
     const token = localStorage.getItem('authToken');
+
+    // Authentication check
+    useEffect(() => {
+        if (!token) {
+            navigate('/login');
+        }
+    }, [token, navigate]);
 
     const [formData, setFormData] = useState({
         age: '',
@@ -36,7 +45,7 @@ function HeartPrediction() {
         setProbability(null);
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/heart_disease_prediction/', {
+      const response = await fetch('http://164.92.167.174/api/heart_disease_prediction/', {
         method: 'POST',
         headers: { 
             'Content-Type': 'application/json'

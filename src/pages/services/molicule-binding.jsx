@@ -1,15 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './../../assets/mol_bind.css';
 import Header from '../../components/header';
 import Footer from '../../components/footer.jsx';
 
 function MolecularBindingPage() {
+  const navigate = useNavigate();
   const [smiles1, setSmiles1] = useState('');
   const [smiles2, setSmiles2] = useState('');
   const [predictionData, setPredictionData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const token = localStorage.getItem('authToken');
+
+  // Authentication check
+  useEffect(() => {
+    if (!token) {
+      navigate('/login');
+    }
+  }, [token, navigate]);
 
   const formatValue = (value) => {
     return typeof value === 'number' ? value.toFixed(3) : value;
@@ -29,7 +38,7 @@ function MolecularBindingPage() {
     setPredictionData(null);
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/mol_binding/', {
+      const response = await fetch('http://164.92.167.174/api/mol_binding/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -65,7 +74,9 @@ function MolecularBindingPage() {
     <>
       <Header />
       <div className="container combined-page-container">
-        <h1>Molecular Binding Predictor</h1>
+        <div className="molecular-binding-header">
+          <h1>Molecular Binding Predictor</h1>
+        </div>
 
         {(!smiles1 && !smiles2) && !predictionData && !loading && (
           <p>Enter two SMILES strings to compare their potential binding.</p>

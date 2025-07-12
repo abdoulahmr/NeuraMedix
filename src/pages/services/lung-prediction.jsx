@@ -1,12 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './../../assets/lung_prediction.css';
 import Header from '../../components/header.jsx';
 import Footer from '../../components/footer.jsx';
 
 function LungCancerPredictor() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({});
   const [result, setResult] = useState(null);
   const [error, setError] = useState('');
+
+  // Authentication check
+  useEffect(() => {
+    const token = localStorage.getItem('authToken');
+    if (!token) {
+      navigate('/login');
+    }
+  }, [navigate]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -47,7 +57,7 @@ function LungCancerPredictor() {
     const numericForm = convertToNumeric(formData);
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/lung_cancer_prediction/', {
+      const response = await fetch('http://164.92.167.174/api/lung_cancer_prediction/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(numericForm),
@@ -104,8 +114,9 @@ function LungCancerPredictor() {
     <>
       <Header />
       <div className="container">
-        <h1>Lung Cancer Risk Predictor</h1>
-
+        <div className="lung-prediction-header">
+          <h1>Lung Cancer Risk Predictor</h1>
+        </div>
         <form onSubmit={handleSubmit}>
           <div className="form-columns">
             {fields.map((field) => (

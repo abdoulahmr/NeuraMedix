@@ -1,5 +1,5 @@
 import React from "react";
-import "./../assets/trustedby.css";
+import "./../../assets/trustedby.css";
 
 function TrustedBy() {
   const trustedCompanies = [

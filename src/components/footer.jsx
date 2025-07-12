@@ -8,7 +8,7 @@ const Footer = () => {
         {/* Company Info */}
         <div className="footer-column company-info">
           <div className="footer-logo-container">
-            <img src="./img/1.png" alt="NeuraMedix Logo" className="footer-logo" style={{ height: '100px', width: 'auto' }} />
+            <img src="./img/1.png" alt="NeuraMedix Logo" className="footer-logo" />
           </div>
           <p className="company-description">
             Accelerating medical diagnostics and research with AI-powered precision.

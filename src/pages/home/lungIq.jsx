@@ -1,5 +1,5 @@
 import React from 'react';
-import './../assets/lungIq.css';
+import './../../assets/lungIq.css';
 
 const LungIQ = () => {
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import "./../assets/hero.css";
+import "./../../assets/hero.css";
 
 const Hero = () => {
   const handleStartFreeTrial = () => {
