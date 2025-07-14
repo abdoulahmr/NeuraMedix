@@ -22,11 +22,11 @@ const Hero = () => {
 
         <div className="hero-actions">
           <button className="start-free-trial-button" onClick={handleStartFreeTrial}>Start Free Trial</button>
-          <button className="watch-demo-button">
-            <svg className="play-icon" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M8 5v14l11-7z"/>
-            </svg>
-            Watch Demo
+          <button
+            className="watch-demo-button"
+            onClick={() => { window.location.href = "/contact"; }}
+          >
+            Contact Us
           </button>
         </div>
       </div>

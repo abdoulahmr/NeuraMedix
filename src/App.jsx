@@ -10,7 +10,6 @@ import Terms from "./pages/terms.jsx";
 import NotFoundPage from './pages/NotFoundPage.jsx';
 import Privacy from './pages/privacy.jsx';
 import ServicePage from "./pages/service.jsx";
-import Solutions from "./pages/solutions.jsx";
 import Login from "./pages/login.jsx";
 import Register from "./pages/register.jsx";
 import UserDashboard from "./pages/account/user-dashboard.jsx";
@@ -43,7 +42,6 @@ function App() {
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/services" element={<ServicePage />} />
-          <Route path="/solutions" element={<Solutions />} />
           
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
