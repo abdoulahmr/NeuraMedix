@@ -36,7 +36,7 @@ function HeartPrediction() {
     setProbability(null);
     setLoading(true);
     try {
-      const response = await fetch('http://api.neuramedix.co/api/heart_disease_prediction/', {
+      const response = await fetch('https://api.neuramedix.co/api/heart_disease_prediction/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

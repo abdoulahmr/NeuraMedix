@@ -20,7 +20,7 @@ function MyNotes() {
       return;
     }
     setLoading(true);
-    fetch('http://api.neuramedix.co/api/user_notes/', {
+    fetch('https://api.neuramedix.co/api/user_notes/', {
       headers: {
         'Authorization': `Bearer ${authToken}`,
       },
@@ -36,7 +36,7 @@ function MyNotes() {
   // Add note
   const handleAddNote = () => {
     if (newNote.trim() === '') return;
-    fetch('http://api.neuramedix.co/api/user_notes/', {
+    fetch('https://api.neuramedix.co/api/user_notes/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -57,7 +57,7 @@ function MyNotes() {
   const handleDeleteNote = (index) => {
     const note = notes[index];
     if (!note) return;
-    fetch('http://api.neuramedix.co/api/user_notes/', {
+    fetch('https://api.neuramedix.co/api/user_notes/', {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

@@ -41,7 +41,7 @@ function LungCancerDetection() {
     setResult(null);
 
     try {
-      const response = await fetch('http://api.neuramedix.co/api/lung_cancer_detection/', {
+      const response = await fetch('https://api.neuramedix.co/api/lung_cancer_detection/', {
         method: 'POST',
         body: formData,
       });

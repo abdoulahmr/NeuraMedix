@@ -50,7 +50,7 @@ function CellCounter() {
         formData.append('image', selectedFile);
 
         try {
-            const response = await fetch('http://api.neuramedix.co/api/cell_detection/', {
+            const response = await fetch('https://api.neuramedix.co/api/cell_detection/', {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`,

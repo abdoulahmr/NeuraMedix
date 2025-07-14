@@ -34,7 +34,7 @@ function LungIQ() {
     formData.append('image', selectedFile);
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/lungiq/', {
+      const response = await fetch('https://api.neuramedix.co/api/lungiq/', {
         method: 'POST',
         body: formData,
       });

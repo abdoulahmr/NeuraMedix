@@ -57,7 +57,7 @@ function LungCancerPredictor() {
     const numericForm = convertToNumeric(formData);
 
     try {
-      const response = await fetch('http://api.neuramedix.co/api/lung_cancer_prediction/', {
+      const response = await fetch('https://api.neuramedix.co/api/lung_cancer_prediction/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(numericForm),

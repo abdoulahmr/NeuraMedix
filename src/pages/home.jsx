@@ -36,7 +36,7 @@ function Home() {
         <meta property="og:title" content="NeuraMedix - Accelerating Biomedical Research with AI" />
         <meta property="og:description" content="NeuraMedix is an all-in-one AI-powered software platform designed to accelerate biomedical research." />
         <meta property="og:image" content="/img/og-image.png" />
-        <meta property="og:url" content="https://neura-medix.vercel.app/" />
+        <meta property="og:url" content="https://neuramedix.co/" />
         <meta property="og:type" content="website" />
         <link rel="icon" href="/img/4.png" />
       </head>
