@@ -1,122 +1,144 @@
-/* General container styling */
+/* heart_prediction.css */
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f8fafc;
+}
+
+.main-content {
+  flex: 1;
+  padding: 32px 0;
+  transition: margin-left 0.3s;
+}
+
+.main-content.collapsed {
+  margin-left: 70px;
+}
+
+.main-content:not(.collapsed) {
+  margin-left: 250px;
+}
+
 .container {
-  max-width: 960px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 700px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(22,153,198,0.08);
+  padding: 32px 24px;
 }
-
-/* Title and description */
-.container h1 {
+ 
+cardioai-title h1 {
   font-size: 2rem;
-  color: #2c3e50;
-  margin-bottom: 0.5rem;
-  text-align: center;
+  font-weight: 700;
+  color: #1699C6;
+  margin-bottom: 8px;
 }
 
-.container p {
-  text-align: center;
-  color: #555;
-  margin-bottom: 1.5rem;
+p {
+  color: #64748b;
 }
 
-/* Error message */
-.error {
-  background-color: #ffe6e6;
-  color: #cc0000;
-  padding: 0.8rem 1rem;
-  border-radius: 8px;
-  margin-bottom: 1.2rem;
-  text-align: center;
+.d-flex {
+  display: flex;
+}
+.justify-content-between {
+  justify-content: space-between;
+}
+.align-items-center {
+  align-items: center;
+}
+.mb-3 {
+  margin-bottom: 24px;
 }
 
-/* Form columns layout */
-.form-columns {
+.modern-form {
+  margin-top: 16px;
+}
+.form-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1rem;
-  margin-bottom: 2rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
-
-/* Form input styling */
 .form-group {
   display: flex;
   flex-direction: column;
+  margin-bottom: 0;
 }
-
 .form-group label {
-  font-weight: 600;
-  margin-bottom: 0.4rem;
-  color: #2c3e50;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #1699C6;
 }
-
-.form-group input,
-.form-group select {
-  padding: 0.5rem 0.7rem;
-  font-size: 1rem;
-  border: 1px solid #ddd;
+input, select {
+  padding: 8px 10px;
   border-radius: 6px;
-  transition: border-color 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group select:focus {
-  outline: none;
-  border-color: #3498db;
-}
-
-/* Submit button */
-.submit-btn {
-  display: block;
-  width: 100%;
-  background: #3498db;
-  color: white;
-  padding: 0.75rem;
+  border: 1px solid #e0e4e7;
   font-size: 1rem;
+  background: #f8fafc;
+  transition: border-color 0.2s;
+}
+input:focus, select:focus {
+  border-color: #1699C6;
+  outline: none;
+}
+.submit-btn {
+  margin-top: 24px;
+  padding: 12px 0;
+  width: 100%;
+  background: #1699C6;
+  color: #fff;
   font-weight: 600;
   border: none;
   border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.submit-btn:hover {
-  background: #2980b9;
-}
-
-/* Prediction result styling */
-.results-section {
-  background-color: #f4f9ff;
-  padding: 1rem;
-  border-radius: 8px;
-  margin-top: 1.5rem;
-  text-align: center;
-  color: #2c3e50;
-}
-
-.results-section p {
-  margin: 0.5rem 0;
   font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.submit-btn:disabled {
+  background: #b3e0f7;
+  color: #fff;
+  cursor: not-allowed;
+}
+.submit-btn:hover:not(:disabled) {
+  background: #0c6f99;
 }
 
-.results-section .risk {
-  font-weight: bold;
-  color: #e67e22;
+.error {
+  color: #ef4444;
+  font-weight: 500;
+  margin-bottom: 12px;
 }
 
-/* Back link */
-.back-home {
-  display: inline-block;
-  margin-top: 2rem;
-  color: #3498db;
-  text-decoration: none;
+.results-section {
+  margin-top: 32px;
+  background: #e0f2fe;
+  border-radius: 12px;
+  padding: 20px 18px;
+  box-shadow: 0 2px 8px rgba(22,153,198,0.06);
+}
+.risk {
+  color: #ef4444;
   font-weight: 600;
-  transition: color 0.3s ease;
+  font-size: 1.1rem;
+  margin-top: 10px;
 }
 
-.back-home:hover {
-  color: #21618c;
+/* Help Modal */
+.help-content {
+  padding: 8px 0;
+}
+.help-content h5 {
+  color: #1699C6;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.help-content ul {
+  margin-left: 18px;
+  margin-bottom: 10px;
+}
+.help-content li {
+  margin-bottom: 6px;
+  font-size: 1rem;
 }

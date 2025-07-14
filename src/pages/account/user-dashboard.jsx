@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Card, Row, Col, Container, Badge } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import { Card, Row, Col, Container, Badge, Modal, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import './../../assets/user_dashboard.css';
 import Header from '../../components/header';
@@ -17,6 +17,7 @@ import {
 
 const UserDashboard = () => {
   const navigate = useNavigate();
+  const [showComingSoon, setShowComingSoon] = useState(false);
 
   // Authentication check
   useEffect(() => {
@@ -56,20 +57,6 @@ const UserDashboard = () => {
 
   const tools = [
     {
-      name: 'ManuscriptMate',
-      status: 'New',
-      description: 'Publication-ready draft assistance',
-      lastUpdated: 'Last used: 3 months ago',
-      icon: <Assignment />
-    },
-    {
-      name: 'PaperSage',
-      status: 'New',
-      description: 'Intelligent paper summarization & analysis',
-      lastUpdated: '10 papers analyzed',
-      icon: <Analytics />
-    },
-    {
       name: 'BindPredict',
       description: 'Molecular binding prediction',
       lastUpdated: 'Last used: 1 day ago',
@@ -97,18 +84,18 @@ const UserDashboard = () => {
   };
 
   const handleCardClick = (itemName) => {
-    // Navigation logic based on the item name
     const routeMap = {
-      'LungIQ4': '/services/lung-prediction',
+      'LungIQ4': '/services/lungiq',
       'CardioAI': '/services/heart-prediction',
       'PathoQuant': '/services/ihc-insight',
       'CellScope AI': '/services/cell-count',
-      'ManuscriptMate': '/services/auto-publish-tool',
-      'PaperSage': '/services/research-analyzer',
       'BindPredict': '/services/molicule-binding',
-      'DockSim': '/services/lung-cancer-detection'
+      // 'DockSim': '/services/lung-cancer-detection' // Remove navigation for DockSim
     };
-    
+    if (itemName === 'DockSim') {
+      setShowComingSoon(true);
+      return;
+    }
     const route = routeMap[itemName];
     if (route) {
       navigate(route);
@@ -212,6 +199,19 @@ const UserDashboard = () => {
             {renderCards(tools)}
           </Row>
       </div>
+      <Modal show={showComingSoon} onHide={() => setShowComingSoon(false)} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>DockSim - Coming Soon</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>DockSim is under development and will be available soon. Stay tuned for advanced molecular docking simulations!</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={() => setShowComingSoon(false)}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 };

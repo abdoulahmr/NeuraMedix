@@ -19,12 +19,8 @@ import IHCInsight from "./pages/services/ihc-insight.jsx";
 import CellCounter from "./pages/services/cell-count.jsx";
 import MolecularBinding from "./pages/services/molicule-binding.jsx";
 import MyNotes from "./pages/account/my-notes.jsx";
-import ResearchAnalyzer from "./pages/services/research-analyzer.jsx";
 import LungCancerPredictor from "./pages/services/lung-prediction.jsx";
-import AutoPublishTool from "./pages/services/auto-publish-tool.jsx";
-
-
-
+import LungIQ from "./pages/services/lungiq.jsx";
 
 function App() {
   useEffect(() => {
@@ -57,11 +53,9 @@ function App() {
           <Route path="/services/heart-prediction" element={<HeartPrediction />} />
           <Route path="/services/ihc-insight" element={<IHCInsight />} />
           <Route path="/services/cell-count" element={<CellCounter />} />
-
-          <Route path="/services/auto-publish-tool" element={<AutoPublishTool />} />
+          <Route path="/services/lungiq" element={<LungIQ />} />
           <Route path="/services/my-notes" element={<MyNotes />} />
           <Route path="/services/molicule-binding" element={<MolecularBinding />} />
-          <Route path="/services/research-analyzer" element={<ResearchAnalyzer />} />
           <Route path="/services/lung-prediction" element={<LungCancerPredictor />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

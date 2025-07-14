@@ -43,7 +43,7 @@ const Aside = ({ isCollapsed, onToggle, activeItem = 'dashboard' }) => {
       icon: <Science />,
       path: '#',
       submenu: [
-        { id: 'lungiq4', label: 'LungIQ4', path: '/services/lung-prediction' },
+        { id: 'lungiq4', label: 'LungIQ4', path: '/services/lungiq' },
         { id: 'cardio-ai', label: 'CardioAI', path: '/services/heart-prediction' },
         { id: 'pathoquant', label: 'PathoQuant', path: '/services/ihc-insight' },
         { id: 'cellscope', label: 'CellScope AI', path: '/services/cell-count' }
