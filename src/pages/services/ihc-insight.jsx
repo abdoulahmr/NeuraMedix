@@ -53,7 +53,7 @@ function IHCInsight() {
     formData.append('image', selectedFile);
 
     try {
-      const response = await fetch('http://164.92.167.174/api/ihc_insight/', {
+      const response = await fetch('http://api.neuramedix.co/api/ihc_insight/', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

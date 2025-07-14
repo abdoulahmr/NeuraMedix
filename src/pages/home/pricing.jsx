@@ -19,7 +19,6 @@ import {
 // Material-UI Icons
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline'; // For included features
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined'; // For excluded features (e.g., "No support")
-import BusinessIcon from '@mui/icons-material/Business'; // Icon for Enterprise tier
 import StarBorderIcon from '@mui/icons-material/StarBorder'; // Icon for Starter tier
 import DiamondIcon from '@mui/icons-material/Diamond'; // Icon for Lab Pro tier
 import TrendingUpIcon from '@mui/icons-material/TrendingUp'; // Icon for Researcher tier
@@ -28,7 +27,7 @@ const pricingTiers = [
   {
     id: 'starter',
     title: 'Starter',
-    price: 'Free or 1200 DA/month',
+    price: 'Free',
     features: [
       { text: '1–2 tools (limited usage)', included: true },
       { text: 'No support', included: false },
@@ -57,7 +56,7 @@ const pricingTiers = [
   {
     id: 'lab-pro',
     title: 'Lab Pro',
-    price: '13000 DA/month or 130000/year',
+    price: '13000 DA/month',
     features: [
       { text: 'All tools + batch analysis', included: true },
       { text: 'Team accounts (3–5 users)', included: true },

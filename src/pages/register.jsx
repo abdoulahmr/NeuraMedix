@@ -40,7 +40,7 @@ function Register() {
     setLoading(true);
 
     try {
-      const response = await fetch('http://164.92.167.174/api/register/', {
+      const response = await fetch('http://api.neuramedix.co/api/register/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

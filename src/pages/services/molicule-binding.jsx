@@ -41,7 +41,7 @@ function MolecularBindingPage() {
     setPredictionData(null);
 
     try {
-      const response = await fetch('http://164.92.167.174/api/mol_binding/', {
+      const response = await fetch('http://api.neuramedix.co/api/mol_binding/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
