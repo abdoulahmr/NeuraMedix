@@ -11,7 +11,6 @@ function Login() {
 
   const navigate = useNavigate();
 
-  // Redirect if user is already logged in
   useEffect(() => {
     const token = localStorage.getItem('authToken');
     if (token) {
@@ -41,29 +40,31 @@ function Login() {
         body: JSON.stringify({ email, password }),
       });
 
-      const data = await response.json();
+      const text = await response.text();
+      let data;
+
+      try {
+        data = JSON.parse(text);
+      } catch {
+        throw new Error('Invalid JSON response from server.');
+      }
 
       if (response.ok) {
         setSuccess(data.message || 'Login successful!');
-        if (data.access) {
-          localStorage.setItem('authToken', data.access);
-        }
-        if (data.refresh) {
-          localStorage.setItem('refreshToken', data.refresh);
-        }
-        if (data.username) {
-          localStorage.setItem('username', data.username);
-        }
-        if (data.id) {
-          localStorage.setItem('userId', data.id);
-        }
+        if (data.access) localStorage.setItem('authToken', data.access);
+        if (data.refresh) localStorage.setItem('refreshToken', data.refresh);
+        if (data.username) localStorage.setItem('username', data.username);
+        if (data.id) localStorage.setItem('userId', data.id);
+
         setEmail('');
         setPassword('');
         navigate('/user-dashboard');
       } else {
-        setError(data.error || 'Login failed. Please check your credentials.');
-        if (data.non_field_errors) setError(data.non_field_errors.join(', '));
-        if (data.detail) setError(data.detail);
+        setError(
+          data.error ||
+          data.detail ||
+          (data.non_field_errors ? data.non_field_errors.join(', ') : 'Login failed.')
+        );
       }
     } catch (err) {
       console.error('Login error:', err);
